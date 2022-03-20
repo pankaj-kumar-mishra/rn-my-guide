@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Styles from '../common/Styles';
 import Colors from '../constants/Colors';
 import MyHeader from '../components/MyHeader';
 
-export default function ColorScreen({ route, navigation }) {
+export default function ColorScreen({route, navigation}) {
   const viewRef = React.useRef(null);
   const [bgColor, setBgColor] = useState();
   useEffect(() => {
@@ -36,10 +36,11 @@ export default function ColorScreen({ route, navigation }) {
   }, []);
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
-      viewRef.current.animate({ 0: { opacity: 0.5 }, 1: { opacity: 1 } });
+      viewRef.current.animate({0: {opacity: 0.5}, 1: {opacity: 1}});
     });
     return () => unsubscribe;
   }, [navigation]);
+
   return (
     <View style={Styles.container}>
       <MyHeader
@@ -53,7 +54,7 @@ export default function ColorScreen({ route, navigation }) {
         ref={viewRef}
         easing={'ease-in-out'}
         style={Styles.container}>
-        <View style={{ backgroundColor: bgColor, flex: 1 }} />
+        <View style={{backgroundColor: bgColor, flex: 1}} />
       </Animatable.View>
     </View>
   );

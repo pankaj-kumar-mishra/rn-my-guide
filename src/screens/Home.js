@@ -1,12 +1,20 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const Home = () => {
-  console.log('Home');
+  const navigation = useNavigation();
+
+  const navToScreen = screenName => {
+    navigation.navigate(screenName);
+  };
+
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <>
+      <Button title="Bottom Tab One" onPress={() => navToScreen('BTone')} />
+      <Button title="Bottom Tab Two" onPress={() => navToScreen('BTtwo')} />
+      <Button title="Bottom Tab Three" onPress={() => navToScreen('BTthree')} />
+    </>
   );
 };
 
