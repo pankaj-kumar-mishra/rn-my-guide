@@ -1,6 +1,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, useColorScheme, StatusBar} from 'react-native';
+import {NativeBaseProvider} from 'native-base';
+import {Provider as PaperProvider} from 'react-native-paper';
 import Colors from './src/constants/Colors';
 import RootStack from './src/navigation/RootStack';
 
@@ -13,15 +15,19 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={safeViewStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={Colors.white}
-      />
-      <NavigationContainer>
-        <RootStack />
-      </NavigationContainer>
-    </SafeAreaView>
+    <NativeBaseProvider>
+      <PaperProvider>
+        <SafeAreaView style={safeViewStyle}>
+          <StatusBar
+            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+            backgroundColor={Colors.white}
+          />
+          <NavigationContainer>
+            <RootStack />
+          </NavigationContainer>
+        </SafeAreaView>
+      </PaperProvider>
+    </NativeBaseProvider>
   );
 };
 

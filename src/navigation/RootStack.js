@@ -4,6 +4,7 @@ import Home from '../screens/Home';
 import BottomTabOne from '../bottomTabs/BottomTabOne';
 import BottomTabTwo from '../bottomTabs/BottomTabTwo';
 import BottomTabThree from '../bottomTabs/BottomTabThree';
+import FormikYup from '../screens/FormikYup';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,16 @@ const RootStack = () => {
         name="BTthree"
         component={BottomTabThree}
         options={{headerShown: false}}
+      />
+
+      {/* OTHER PACKAGES */}
+      <Stack.Screen
+        name="FormikYup"
+        component={FormikYup}
+        options={{
+          title: 'Formik Yup - Validation',
+          headerTitleAlign: 'center',
+        }}
       />
     </Stack.Navigator>
   );
