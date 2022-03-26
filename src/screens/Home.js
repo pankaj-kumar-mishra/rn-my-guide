@@ -20,9 +20,6 @@ const Home = () => {
       <Pressable style={styles.listItem} onPress={() => navToScreen('BTthree')}>
         <Text>Bottom Tab Three</Text>
       </Pressable>
-      <Pressable style={styles.listItem} onPress={() => navToScreen('BTthree')}>
-        <Text>Bottom Tab Three</Text>
-      </Pressable>
       <View style={styles.line} />
       <Pressable
         style={styles.listItem}

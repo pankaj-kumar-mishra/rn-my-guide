@@ -1,10 +1,19 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, TextInput, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Pressable,
+  Alert,
+} from 'react-native';
 import {useFormik, Formik} from 'formik';
 import {Radio, Checkbox, Switch, TextArea} from 'native-base';
+import * as yup from 'yup';
 
 const initialValues = {
   name: '',
+  age: '',
   email: '',
   description: '',
   status: 'married',
@@ -12,27 +21,79 @@ const initialValues = {
   //isActive: true,
 };
 
-const FormikYup = () => {
+const validationSchema = yup.object().shape({
+  name: yup
+    .string()
+    .min(6, 'Name should not be less than 6 letters')
+    .required('Name required!!!'),
+  email: yup
+    .string()
+    .email('Please enter valid email')
+    .required('Email required!!!'),
+  description: yup
+    .string()
+    .max(10, 'Description should not be more than 10 letters.'),
+  age: yup
+    .number()
+    .required('Please enter your age.')
+    .positive('Enter positive number')
+    .integer('Only enter string'),
+});
+
+const FormikYup1 = () => {
+  const handleOnSubmit = formValues => {
+    console.log(formValues);
+    // Alert.alert(JSON.stringify(formValues));
+  };
+
   return (
     <View style={styles.container}>
       <Formik
         initialValues={initialValues}
-        onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values}) => (
+        validationSchema={validationSchema}
+        onSubmit={handleOnSubmit}>
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          values,
+          errors,
+          touched,
+          isValid,
+        }) => (
           <>
+            {/* {console.log(errors)} */}
             <TextInput
               style={styles.input}
               value={values.name}
               onChangeText={handleChange('name')}
               placeholder="Your Name"
+              onBlur={handleBlur('name')}
             />
+            {errors.name && touched.name && (
+              <Text style={styles.errMsg}>{errors.name}</Text>
+            )}
+            <TextInput
+              style={styles.input}
+              keyboardType="numeric"
+              value={values.age}
+              onChangeText={handleChange('age')}
+              placeholder="Your Age"
+              onBlur={handleBlur('age')}
+            />
+            {errors.age && touched.age && (
+              <Text style={styles.errMsg}>{errors.age}</Text>
+            )}
             <TextInput
               style={styles.input}
               value={values.email}
               onChangeText={handleChange('email')}
               placeholder="Your Email"
+              onBlur={handleBlur('email')}
             />
-
+            {errors.email && touched.email && (
+              <Text style={styles.errMsg}>{errors.email}</Text>
+            )}
             <Radio.Group
               name="status"
               accessibilityLabel="Martial Status"
@@ -70,16 +131,26 @@ const FormikYup = () => {
               />
             </View> */}
 
-            <TextArea
-              h={20}
-              bgColor="#fff"
-              mt={3}
+            <TextInput
+              multiline
+              numberOfLines={5}
+              textAlignVertical="top"
+              style={[styles.input, {height: 80}]}
               placeholder="Your description..."
               value={values.description}
               onChangeText={handleChange('description')}
+              onBlur={handleBlur('description')}
             />
-
-            <Pressable style={styles.btn} onPress={handleSubmit}>
+            {errors.description && touched.description && (
+              <Text style={styles.errMsg}>{errors.description}</Text>
+            )}
+            <Pressable
+              disabled={!isValid}
+              style={[
+                styles.btn,
+                {backgroundColor: isValid ? 'gold' : 'goldenrod'},
+              ]}
+              onPress={handleSubmit}>
               <Text>Submit</Text>
             </Pressable>
           </>
@@ -89,7 +160,7 @@ const FormikYup = () => {
   );
 };
 
-export default FormikYup;
+export default FormikYup1;
 
 const styles = StyleSheet.create({
   container: {
@@ -103,12 +174,13 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     backgroundColor: '#fff',
     paddingHorizontal: 10,
-    marginBottom: 15,
+    marginTop: 15,
   },
   statusCover: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: 15,
   },
   activeCover: {
     flexDirection: 'row',
@@ -132,6 +204,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
+  },
+  errMsg: {
+    color: 'red',
+    fontSize: 12,
   },
 });
 
