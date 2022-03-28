@@ -5,6 +5,7 @@ import BottomTabOne from '../bottomTabs/BottomTabOne';
 import BottomTabTwo from '../bottomTabs/BottomTabTwo';
 import BottomTabThree from '../bottomTabs/BottomTabThree';
 import FormikYup from '../screens/FormikYup';
+import MagicLayout from '../screens/animations/MagicLayout';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,15 @@ const RootStack = () => {
         options={{
           title: 'Formik Yup - Validation',
           headerTitleAlign: 'center',
+        }}
+      />
+
+      {/* ANIMATIONS */}
+      <Stack.Screen
+        name="MagicLayout"
+        component={MagicLayout}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

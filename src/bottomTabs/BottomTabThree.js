@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import {StyleSheet, Pressable} from 'react-native';
+import {StyleSheet, Pressable, View, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as Animatable from 'react-native-animatable';
 import {
@@ -14,35 +14,39 @@ import Colors from '../constants/Colors';
 const TabArr = [
   {
     route: 'ScreenOne',
-    label: 'Screen One',
-    type: Icons.Ionicons,
-    activeIcon: 'grid',
-    inActiveIcon: 'grid-outline',
+    label: 'Home',
+    type: Icons.Feather,
+    icon: 'home',
     component: ScreenOne,
+    color: Colors.primary,
+    alphaClr: Colors.primaryAlpha,
   },
   {
     route: 'ScreenTwo',
-    label: 'Screen Two',
-    type: Icons.MaterialCommunityIcons,
-    activeIcon: 'heart-plus',
-    inActiveIcon: 'heart-plus-outline',
+    label: 'Search',
+    type: Icons.Feather,
+    icon: 'search',
     component: ScreenTwo,
+    color: Colors.green,
+    alphaClr: Colors.greenAlpha,
   },
   {
     route: 'ScreenThree',
-    label: 'Screen Three',
-    type: Icons.MaterialCommunityIcons,
-    activeIcon: 'timeline-plus',
-    inActiveIcon: 'timeline-plus-outline',
+    label: 'Add New',
+    type: Icons.Feather,
+    icon: 'plus-square',
     component: ScreenThree,
+    color: Colors.red,
+    alphaClr: Colors.redAlpha,
   },
   {
     route: 'ScreenFour',
-    label: 'Screen Four',
+    label: 'Account',
     type: Icons.FontAwesome,
-    activeIcon: 'user-circle',
-    inActiveIcon: 'user-circle-o',
+    icon: 'user-circle-o',
     component: ScreenFour,
+    color: Colors.purple,
+    alphaClr: Colors.purpleAlpha,
   },
 ];
 
@@ -50,6 +54,7 @@ const Tab = createBottomTabNavigator();
 
 const TabButton = props => {
   const viewRef = useRef(null);
+  const textViewRef = useRef(null);
 
   const {item, onPress, accessibilityState} = props;
   //   console.log(props);
@@ -58,27 +63,52 @@ const TabButton = props => {
   useEffect(() => {
     if (focused) {
       viewRef.current.animate({
-        0: {scale: 0.8, rotate: '0deg'},
-        1: {scale: 1.5, rotate: '360deg'},
+        0: {scale: 0},
+        1: {scale: 1},
+      });
+      textViewRef.current.animate({
+        0: {scale: 0},
+        1: {scale: 1},
       });
     } else {
       viewRef.current.animate({
-        0: {scale: 1.5, rotate: '360deg'},
-        1: {scale: 1, rotate: '0deg'},
+        0: {scale: 1},
+        1: {scale: 0},
+      });
+      textViewRef.current.animate({
+        0: {scale: 1},
+        1: {scale: 0},
       });
     }
   }, [focused]);
 
   return (
-    <Pressable onPress={onPress} style={styles.tabBtn}>
-      <Animatable.View ref={viewRef} duration={1000}>
-        <Icon
-          name={focused ? item.activeIcon : item.inActiveIcon}
-          type={item.type}
-          color={focused ? Colors.primary : Colors.primaryLite}
-          //size={size}
+    <Pressable
+      onPress={onPress}
+      style={[styles.tabBtn, {flex: focused ? 1 : 0.7}]}>
+      <View>
+        <Animatable.View
+          ref={viewRef}
+          style={[
+            StyleSheet.absoluteFillObject,
+            {backgroundColor: item.color, borderRadius: 16},
+          ]}
         />
-      </Animatable.View>
+        <View
+          style={[
+            styles.btn,
+            {backgroundColor: focused ? null : item.alphaClr},
+          ]}>
+          <Icon
+            type={item.type}
+            name={item.icon}
+            color={focused ? Colors.white : Colors.primary}
+          />
+          <Animatable.View ref={textViewRef}>
+            {focused && <Text style={styles.btnText}>{item.label}</Text>}
+          </Animatable.View>
+        </View>
+      </View>
     </Pressable>
   );
 };
@@ -97,14 +127,6 @@ const BottomTabThree = () => {
           options={{
             title: item.label,
             tabBarShowLabel: false,
-            //tabBarIcon: ({focused, color, size}) => (
-            //  <Icon
-            //    name={focused ? item.activeIcon : item.inActiveIcon}
-            //    type={item.type}
-            //    color={color}
-            //    size={size}
-            //  />
-            //),
             tabBarButton: props => <TabButton {...props} item={item} />,
           }}
         />
@@ -126,8 +148,17 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   tabBtn: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  btn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+    borderRadius: 16,
+  },
+  btnText: {
+    color: 'white',
+    paddingHorizontal: 8,
   },
 });

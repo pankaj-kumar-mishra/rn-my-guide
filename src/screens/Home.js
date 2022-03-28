@@ -26,6 +26,12 @@ const Home = () => {
         onPress={() => navToScreen('FormikYup')}>
         <Text>formik/Yup Validation</Text>
       </Pressable>
+      <View style={styles.line} />
+      <Pressable
+        style={styles.listItem}
+        onPress={() => navToScreen('MagicLayout')}>
+        <Text>Layout Animation (reanimated)</Text>
+      </Pressable>
     </View>
   );
 };
