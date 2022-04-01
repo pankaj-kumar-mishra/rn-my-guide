@@ -6,6 +6,7 @@ import BottomTabTwo from '../bottomTabs/BottomTabTwo';
 import BottomTabThree from '../bottomTabs/BottomTabThree';
 import FormikYup from '../screens/FormikYup';
 import MagicLayout from '../screens/animations/MagicLayout';
+import CountDownApp from '../screens/animations/CountDownApp';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,13 @@ const RootStack = () => {
       <Stack.Screen
         name="MagicLayout"
         component={MagicLayout}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="CountDownApp"
+        component={CountDownApp}
         options={{
           headerShown: false,
         }}

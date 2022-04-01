@@ -32,6 +32,11 @@ const Home = () => {
         onPress={() => navToScreen('MagicLayout')}>
         <Text>Layout Animation (reanimated)</Text>
       </Pressable>
+      <Pressable
+        style={styles.listItem}
+        onPress={() => navToScreen('CountDownApp')}>
+        <Text>Countdown Animation (animated)</Text>
+      </Pressable>
     </View>
   );
 };
