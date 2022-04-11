@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Pressable, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import MyPressable from '../components/MyPressable';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -11,32 +12,32 @@ const Home = () => {
 
   return (
     <View style={styles.lists}>
-      <Pressable style={styles.listItem} onPress={() => navToScreen('BTone')}>
-        <Text>Bottom Tab One</Text>
-      </Pressable>
-      <Pressable style={styles.listItem} onPress={() => navToScreen('BTtwo')}>
-        <Text>Bottom Tab Two</Text>
-      </Pressable>
-      <Pressable style={styles.listItem} onPress={() => navToScreen('BTthree')}>
-        <Text>Bottom Tab Three</Text>
-      </Pressable>
+      <MyPressable text="Bottom Tab One" onPress={() => navToScreen('BTone')} />
+      <MyPressable text="Bottom Tab Two" onPress={() => navToScreen('BTtwo')} />
+      <MyPressable
+        text="Bottom Tab Three"
+        onPress={() => navToScreen('BTthree')}
+      />
+
       <View style={styles.line} />
-      <Pressable
-        style={styles.listItem}
-        onPress={() => navToScreen('FormikYup')}>
-        <Text>formik/Yup Validation</Text>
-      </Pressable>
+      <MyPressable
+        text="formik/Yup Validation"
+        onPress={() => navToScreen('FormikYup')}
+      />
+
       <View style={styles.line} />
-      <Pressable
-        style={styles.listItem}
-        onPress={() => navToScreen('MagicLayout')}>
-        <Text>Layout Animation (reanimated)</Text>
-      </Pressable>
-      <Pressable
-        style={styles.listItem}
-        onPress={() => navToScreen('CountDownApp')}>
-        <Text>Countdown Animation (animated)</Text>
-      </Pressable>
+      <MyPressable
+        text="Layout Animation (reanimated)"
+        onPress={() => navToScreen('MagicLayout')}
+      />
+      <MyPressable
+        text="Countdown Animation (animated)"
+        onPress={() => navToScreen('CountDownApp')}
+      />
+      <MyPressable
+        text="Breathing Animation (animated)"
+        onPress={() => navToScreen('BreathingApp')}
+      />
     </View>
   );
 };
@@ -46,15 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
     padding: 10,
   },
-  listItem: {
-    marginBottom: 10,
-    borderRadius: 5,
-    backgroundColor: '#fff',
-    borderWidth: 3,
-    borderColor: 'goldenrod',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-  },
+
   line: {
     height: 5,
     width: '100%',

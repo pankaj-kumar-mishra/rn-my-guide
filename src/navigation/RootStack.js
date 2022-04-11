@@ -7,6 +7,7 @@ import BottomTabThree from '../bottomTabs/BottomTabThree';
 import FormikYup from '../screens/FormikYup';
 import MagicLayout from '../screens/animations/MagicLayout';
 import CountDownApp from '../screens/animations/CountDownApp';
+import BreathingApp from '../screens/animations/BreathingApp';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +52,13 @@ const RootStack = () => {
       <Stack.Screen
         name="CountDownApp"
         component={CountDownApp}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="BreathingApp"
+        component={BreathingApp}
         options={{
           headerShown: false,
         }}
