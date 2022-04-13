@@ -8,6 +8,10 @@ import FormikYup from '../screens/FormikYup';
 import MagicLayout from '../screens/animations/MagicLayout';
 import CountDownApp from '../screens/animations/CountDownApp';
 import BreathingApp from '../screens/animations/BreathingApp';
+import FloatingActionButton from '../screens/animations/FloatingActionButton';
+import FloatingActionButton2 from '../screens/animations/FloatingActionButton2';
+import OnBoarding from '../screens/OnBoarding';
+import MaskedViewSample from '../screens/Libraries/MaskedViewSample';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +44,14 @@ const RootStack = () => {
           headerTitleAlign: 'center',
         }}
       />
+      <Stack.Screen
+        name="MaskedView"
+        component={MaskedViewSample}
+        options={{
+          title: 'Masked View',
+          headerTitleAlign: 'center',
+        }}
+      />
 
       {/* ANIMATIONS */}
       <Stack.Screen
@@ -59,6 +71,31 @@ const RootStack = () => {
       <Stack.Screen
         name="BreathingApp"
         component={BreathingApp}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      {/* FAB */}
+      <Stack.Screen
+        name="FloatingActionButton"
+        component={FloatingActionButton}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="FloatingActionButton2"
+        component={FloatingActionButton2}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      {/* ON BOARDING */}
+      <Stack.Screen
+        name="OnBoarding"
+        component={OnBoarding}
         options={{
           headerShown: false,
         }}

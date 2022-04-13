@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -70,10 +70,20 @@ const validationSchema = yup.object().shape({
 });
 
 const FormikYup = () => {
+  const submitRef = useRef(null);
+
   const handleOnSubmit = formValues => {
     console.log(formValues);
     // Alert.alert(JSON.stringify(formValues));
   };
+
+  // const updateSubmitButton = () => {
+  //   if (submitRef?.current) {
+  //     submitRef.current.setNativeProps({
+  //       style: {backgroundColor: 'red'},
+  //     });
+  //   }
+  // };
 
   return (
     <ScrollView style={styles.container}>
@@ -155,6 +165,7 @@ const FormikYup = () => {
             />
 
             <Pressable
+              ref={submitRef}
               disabled={!isValid}
               style={[
                 styles.btn,
@@ -166,6 +177,10 @@ const FormikYup = () => {
           </>
         )}
       </Formik>
+
+      {/* <Pressable onPress={updateSubmitButton}>
+        <Text>Change Submit Button</Text>
+      </Pressable> */}
     </ScrollView>
   );
 };

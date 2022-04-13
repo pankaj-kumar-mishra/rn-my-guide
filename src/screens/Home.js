@@ -27,6 +27,12 @@ const Home = () => {
 
       <View style={styles.line} />
       <MyPressable
+        text="Masked View"
+        onPress={() => navToScreen('MaskedView')}
+      />
+
+      <View style={styles.line} />
+      <MyPressable
         text="Layout Animation (reanimated)"
         onPress={() => navToScreen('MagicLayout')}
       />
@@ -37,6 +43,26 @@ const Home = () => {
       <MyPressable
         text="Breathing Animation (animated)"
         onPress={() => navToScreen('BreathingApp')}
+      />
+
+      <View style={styles.line} />
+      <MyPressable
+        text="Floating Action Button (animated)"
+        onPress={() => navToScreen('FloatingActionButton')}
+      />
+      <MyPressable
+        text="Floating Action Button (reanimated)"
+        onPress={() => navToScreen('FloatingActionButton2')}
+      />
+
+      <View style={styles.line} />
+      <MyPressable
+        text="Onboarding (animated)"
+        onPress={() => navToScreen('OnBoarding')}
+      />
+      <MyPressable
+        text="Onboarding (reanimated)"
+        onPress={() => navToScreen('OnBoarding')}
       />
     </View>
   );
