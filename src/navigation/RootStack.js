@@ -12,6 +12,9 @@ import FloatingActionButton from '../screens/animations/FloatingActionButton';
 import FloatingActionButton2 from '../screens/animations/FloatingActionButton2';
 import OnBoarding from '../screens/OnBoarding';
 import MaskedViewSample from '../screens/Libraries/MaskedViewSample';
+import VictoryNative from '../screens/VictoryNative';
+import ShimmerEffectPosts from '../screens/ShimmerEffectPosts';
+import CollapsingHeaderFooter from '../screens/CollapsingHeaderFooter';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +35,12 @@ const RootStack = () => {
       <Stack.Screen
         name="BTthree"
         component={BottomTabThree}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="CollapsingHeaderFooter"
+        component={CollapsingHeaderFooter}
         options={{headerShown: false}}
       />
 
@@ -96,6 +105,24 @@ const RootStack = () => {
       <Stack.Screen
         name="OnBoarding"
         component={OnBoarding}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      {/* CHARTS/GRAPHS VICTORY NATIVE */}
+      <Stack.Screen
+        name="VictoryNative"
+        component={VictoryNative}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      {/* OPTIMIZATION ABSTRACTION */}
+      <Stack.Screen
+        name="ShimmerEffectPosts"
+        component={ShimmerEffectPosts}
         options={{
           headerShown: false,
         }}

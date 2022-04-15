@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {NativeBaseProvider} from 'native-base';
 import {Provider as PaperProvider} from 'react-native-paper';
+import {enableFreeze} from 'react-native-screens';
 import Colors from './src/constants/Colors';
 import RootStack from './src/navigation/RootStack';
 
@@ -17,6 +18,8 @@ if (Platform.OS === 'android') {
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 }
+
+enableFreeze(true);
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
