@@ -1,9 +1,12 @@
 package com.proui;
 
-// REACT NATIVE SCREENS
+// RN SCREENS || RN SPLASH SCREEN
 import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
+
+// RN SPLASH SCREEN
+import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,14 +14,23 @@ public class MainActivity extends ReactActivity {
    * Returns the name of the main component registered from JavaScript. This is used to schedule
    * rendering of the component.
    */
+  
+  // RN SPLASH SCREEN
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    SplashScreen.show(this);  // here
+    super.onCreate(savedInstanceState);
+  }
+
   @Override
   protected String getMainComponentName() {
     return "ProUI";
   }
 
-  // REACT NATIVE SCREENS
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
-  }
+  // RN SCREENS
+  // @Override
+  // protected void onCreate(Bundle savedInstanceState) {
+  //   super.onCreate(null);
+  // }
+
 }

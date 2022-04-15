@@ -1,5 +1,5 @@
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import React from 'react';
 import {
   SafeAreaView,
   useColorScheme,
@@ -10,6 +10,7 @@ import {
 import {NativeBaseProvider} from 'native-base';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {enableFreeze} from 'react-native-screens';
+import SplashScreen from 'react-native-splash-screen';
 import Colors from './src/constants/Colors';
 import RootStack from './src/navigation/RootStack';
 
@@ -23,6 +24,12 @@ enableFreeze(true);
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  useEffect(() => {
+    // do stuff while splash screen is shown
+    // After having done stuff (such as async tasks) hide the splash screen
+    SplashScreen.hide();
+  }, []);
 
   const safeViewStyle = {
     flex: 1,
