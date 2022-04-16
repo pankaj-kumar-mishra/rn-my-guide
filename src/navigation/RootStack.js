@@ -15,6 +15,8 @@ import MaskedViewSample from '../screens/Libraries/MaskedViewSample';
 import VictoryNative from '../screens/VictoryNative';
 import ShimmerEffectPosts from '../screens/ShimmerEffectPosts';
 import CollapsingHeaderFooter from '../screens/CollapsingHeaderFooter';
+import HowToAnimated from '../screens/EveningKid/HowToAnimated';
+import PanAndScaleImage from '../screens/EveningKid/PanAndScaleImage';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,6 +65,22 @@ const RootStack = () => {
       />
 
       {/* ANIMATIONS */}
+      {/* EVENTING KID */}
+      <Stack.Screen
+        name="HowToAnimated"
+        component={HowToAnimated}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="PanAndScaleImage"
+        component={PanAndScaleImage}
+        options={{
+          headerShown: false,
+        }}
+      />
+
       <Stack.Screen
         name="MagicLayout"
         component={MagicLayout}

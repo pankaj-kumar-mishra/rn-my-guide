@@ -1,6 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import {StyleSheet, Text, View, Animated} from 'react-native';
 import FeedCard from './components/FeedCard';
+import FeedCardImageView from './components/FeedCardImageView';
 import FeedHeader from './components/FeedHeader';
 
 import feedData from './data';
@@ -90,7 +91,8 @@ const CollapsingHeaderFooter = () => {
         keyExtractor={({id}) => id.toString()}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.contentContainerStyle}
-        renderItem={({item}) => <FeedCard item={item} />}
+        //renderItem={({item}) => <FeedCard item={item} />}
+        renderItem={({item}) => <FeedCardImageView item={item} />}
         ItemSeparatorComponent={() => <View style={{height: 15}} />}
         onScroll={Animated.event(
           [{nativeEvent: {contentOffset: {y: scrollY}}}],

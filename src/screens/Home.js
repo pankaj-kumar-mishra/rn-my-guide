@@ -46,6 +46,16 @@ const Home = () => {
 
         <View style={styles.line} />
         <MyPressable
+          text="How To Animated (Evening Kid)"
+          onPress={() => navToScreen('HowToAnimated')}
+        />
+        <MyPressable
+          text="Pan and Scale Image (Evening Kid)"
+          onPress={() => navToScreen('PanAndScaleImage')}
+        />
+
+        <View style={styles.line} />
+        <MyPressable
           text="Layout Animation (reanimated)"
           onPress={() => navToScreen('MagicLayout')}
         />
