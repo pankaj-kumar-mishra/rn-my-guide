@@ -66,7 +66,7 @@ const HowToAnimated = () => {
         scrollEventThrottle={16}> */}
       {/* BETTER APPROACH */}
       <Animated.ScrollView
-        scrollEnabled={false}
+        scrollEnabled={true}
         showsVerticalScrollIndicator={false}
         style={{flex: 1}}
         onScroll={Animated.event(

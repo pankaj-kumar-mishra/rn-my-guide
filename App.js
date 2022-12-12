@@ -1,16 +1,11 @@
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  SafeAreaView,
-  useColorScheme,
-  StatusBar,
-  Platform,
-  UIManager,
-} from 'react-native';
+import {useColorScheme, StatusBar, Platform, UIManager} from 'react-native';
 import {NativeBaseProvider} from 'native-base';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {enableFreeze} from 'react-native-screens';
 import SplashScreen from 'react-native-splash-screen';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import Colors from './src/constants/Colors';
 import RootStack from './src/navigation/RootStack';
 
@@ -37,19 +32,21 @@ const App = () => {
   };
 
   return (
-    <NativeBaseProvider>
-      <PaperProvider>
-        <SafeAreaView style={safeViewStyle}>
-          <StatusBar
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            backgroundColor={Colors.white}
-          />
-          <NavigationContainer>
-            <RootStack />
-          </NavigationContainer>
-        </SafeAreaView>
-      </PaperProvider>
-    </NativeBaseProvider>
+    <SafeAreaProvider>
+      <SafeAreaView style={safeViewStyle}>
+        <NativeBaseProvider>
+          <PaperProvider>
+            <StatusBar
+              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+              backgroundColor={Colors.white}
+            />
+            <NavigationContainer>
+              <RootStack />
+            </NavigationContainer>
+          </PaperProvider>
+        </NativeBaseProvider>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

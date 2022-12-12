@@ -36,14 +36,14 @@ const PanAndScaleImage = () => {
         const activeTouches = evt.nativeEvent.changedTouches.length;
         if (activeTouches === 1) {
           // handle move
-          //   console.log('move');
+          console.log('move');
           pan.setValue({
             x: gestureState.dx,
             y: gestureState.dy,
           });
         } else if (activeTouches === 2) {
           // handle scale/zoom
-          //   console.log('scale');
+          console.log('scale');
           const touches = evt.nativeEvent.changedTouches;
           const touchA = touches[0];
           const touchB = touches[1];

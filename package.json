@@ -5,7 +5,7 @@
   "scripts": {
     "gc": "cd android && ./gradlew clean && cd ..",
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator=\"iPhone 13 Pro\"",
     "start": "react-native start",
     "start:reset": "react-native start --reset-cache",
     "test": "jest",
