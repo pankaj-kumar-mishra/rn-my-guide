@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {StyleSheet, View, TouchableOpacity, Animated} from 'react-native';
 import Svg, {G, Circle} from 'react-native-svg';
-import Icon, {Icons} from '../../../components/Icons';
+import {Icon, Icons} from '../../../components';
 
 const size = 128;
 const strokeWidth = 2;

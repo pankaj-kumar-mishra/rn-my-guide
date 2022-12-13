@@ -27,7 +27,7 @@ export const Icons = {
   EvilIcons,
 };
 
-const Icon = ({type, name, color, size = 24, style}) => {
+export const Icon = ({type, name, color, size = 24, style}) => {
   const fontSize = 24;
   const Tag = type;
   return (
@@ -38,5 +38,3 @@ const Icon = ({type, name, color, size = 24, style}) => {
     </>
   );
 };
-
-export default Icon;

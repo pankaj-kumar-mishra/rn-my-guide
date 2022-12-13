@@ -2,14 +2,9 @@ import React, {useRef, useEffect} from 'react';
 import {StyleSheet, Pressable, View, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as Animatable from 'react-native-animatable';
-import {
-  ScreenOne,
-  ScreenTwo,
-  ScreenThree,
-  ScreenFour,
-} from '../screens/BottomTabScreens';
-import Icon, {Icons} from '../components/Icons';
-import Colors from '../constants/Colors';
+import {ScreenOne, ScreenTwo, ScreenThree, ScreenFour} from '../screens';
+import {Icon, Icons} from '../components';
+import {Colors} from '../constants';
 
 const TabArr = [
   {

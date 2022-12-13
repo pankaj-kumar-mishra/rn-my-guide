@@ -28,6 +28,12 @@ const Home = () => {
 
         <View style={styles.line} />
         <MyPressable
+          text="Drawer One"
+          onPress={() => navToScreen('DrawerOne')}
+        />
+
+        <View style={styles.line} />
+        <MyPressable
           text="Collapsing Header & Footer(BT)"
           onPress={() => navToScreen('CollapsingHeaderFooter')}
         />

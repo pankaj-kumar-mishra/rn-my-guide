@@ -1,6 +1,6 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import Styles from '../common/Styles';
+import {Styles} from '../common';
 
 export const ScreenOne = () => {
   return (

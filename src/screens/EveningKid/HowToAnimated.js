@@ -1,9 +1,11 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {StyleSheet, View, ScrollView, Text, Animated} from 'react-native';
-import AnimationTypes from './components/AnimationTypes';
-import BasicGestures from './components/BasicGestures';
-import Basics from './components/Basics';
-import Interpolation from './components/Interpolation';
+import {
+  AnimationTypes,
+  BasicGestures,
+  Basics,
+  Interpolation,
+} from './components';
 
 /**
  * 1. onScroll gives information on the current scrolling position and other indicators (content offset, size...)

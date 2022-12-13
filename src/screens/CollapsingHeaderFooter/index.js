@@ -1,8 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import {StyleSheet, Text, View, Animated} from 'react-native';
-import FeedCard from './components/FeedCard';
-import FeedCardImageView from './components/FeedCardImageView';
-import FeedHeader from './components/FeedHeader';
+import {FeedCard, FeedCardImageView, FeedHeader} from './components';
 
 import feedData from './data';
 

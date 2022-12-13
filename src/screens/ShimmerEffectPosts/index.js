@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, FlatList, ScrollView} from 'react-native';
-import PostCard from './components/PostCard';
-import SkeletonCard from './components/SkeletonCard';
+import {StyleSheet, View, FlatList, ScrollView} from 'react-native';
+import {PostCard, SkeletonCard} from './components';
 
 import postsData from './data';
 
