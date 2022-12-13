@@ -1,22 +1,23 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from '../screens/Home';
-import BottomTabOne from '../bottomTabs/BottomTabOne';
-import BottomTabTwo from '../bottomTabs/BottomTabTwo';
-import BottomTabThree from '../bottomTabs/BottomTabThree';
+import {
+  Home,
+  VictoryNative,
+  CollapsingHeaderFooter,
+  OnBoarding,
+  ShimmerEffectPosts,
+  HowToAnimated,
+  PanAndScaleImage,
+  BreathingApp,
+  CountDownApp,
+  FloatingActionButton,
+  FloatingActionButton2,
+  MagicLayout,
+} from '../screens';
+import {BottomTabOne, BottomTabTwo, BottomTabThree} from '../bottomTabs';
+import {DrawerOne} from '../drawers';
 import FormikYup from '../screens/FormikYup';
-import MagicLayout from '../screens/animations/MagicLayout';
-import CountDownApp from '../screens/animations/CountDownApp';
-import BreathingApp from '../screens/animations/BreathingApp';
-import FloatingActionButton from '../screens/animations/FloatingActionButton';
-import FloatingActionButton2 from '../screens/animations/FloatingActionButton2';
-import OnBoarding from '../screens/OnBoarding';
 import MaskedViewSample from '../screens/Libraries/MaskedViewSample';
-import VictoryNative from '../screens/VictoryNative';
-import ShimmerEffectPosts from '../screens/ShimmerEffectPosts';
-import CollapsingHeaderFooter from '../screens/CollapsingHeaderFooter';
-import HowToAnimated from '../screens/EveningKid/HowToAnimated';
-import PanAndScaleImage from '../screens/EveningKid/PanAndScaleImage';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,11 @@ const RootStack = () => {
       <Stack.Screen
         name="BTthree"
         component={BottomTabThree}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DrawerOne"
+        component={DrawerOne}
         options={{headerShown: false}}
       />
 

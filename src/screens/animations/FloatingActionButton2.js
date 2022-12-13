@@ -18,7 +18,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import Icon, {Icons} from '../../components/Icons';
+import {Icon, Icons} from '../../components';
 const {width} = Dimensions.get('screen');
 
 const FAB_SIZE = 54;

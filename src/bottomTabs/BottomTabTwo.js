@@ -8,9 +8,9 @@ import {
   ScreenThree,
   ScreenFour,
   ScreenFive,
-} from '../screens/BottomTabScreens';
-import Icon, {Icons} from '../components/Icons';
-import Colors from '../constants/Colors';
+} from '../screens';
+import {Icon, Icons} from '../components';
+import {Colors} from '../constants';
 
 const TabArr = [
   {

@@ -7,9 +7,7 @@ import {
   Animated,
   useWindowDimensions,
 } from 'react-native';
-import NextCircleBtn from './components/NextCircleBtn';
-import OnBoardingItem from './components/OnBoardingItem';
-import Paginator from './components/Paginator';
+import {NextCircleBtn, OnBoardingItem, Paginator} from './components';
 
 import slidesData from './data';
 

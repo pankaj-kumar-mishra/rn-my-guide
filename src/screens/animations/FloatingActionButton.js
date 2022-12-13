@@ -7,7 +7,7 @@ import {
   Animated,
   TouchableWithoutFeedback,
 } from 'react-native';
-import Icon, {Icons} from '../../components/Icons';
+import {Icon, Icons} from '../../components';
 
 const FloatingActionButton = () => {
   const isOpen = useRef(false);
