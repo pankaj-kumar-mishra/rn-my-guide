@@ -18,6 +18,7 @@ import {
   FloatingActionButton2,
   MagicLayout,
 } from './animations';
+import {TwoWayScrolling} from './ScrollAnimations';
 
 export {
   Home,
@@ -37,4 +38,5 @@ export {
   FloatingActionButton,
   FloatingActionButton2,
   MagicLayout,
+  TwoWayScrolling,
 };

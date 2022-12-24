@@ -76,6 +76,12 @@ const Home = () => {
 
         <View style={styles.line} />
         <MyPressable
+          text="Two Way Scrolling Animation"
+          onPress={() => navToScreen('TwoWayScrolling')}
+        />
+
+        <View style={styles.line} />
+        <MyPressable
           text="Floating Action Button (animated)"
           onPress={() => navToScreen('FloatingActionButton')}
         />
