@@ -13,6 +13,7 @@ import {
   FloatingActionButton,
   FloatingActionButton2,
   MagicLayout,
+  TwoWayScrolling,
 } from '../screens';
 import {BottomTabOne, BottomTabTwo, BottomTabThree} from '../bottomTabs';
 import {DrawerOne} from '../drawers';
@@ -71,7 +72,7 @@ const RootStack = () => {
       />
 
       {/* ANIMATIONS */}
-      {/* EVENTING KID */}
+      {/* EVENTING KID ANIMATIONS */}
       <Stack.Screen
         name="HowToAnimated"
         component={HowToAnimated}
@@ -104,6 +105,14 @@ const RootStack = () => {
       <Stack.Screen
         name="BreathingApp"
         component={BreathingApp}
+        options={{
+          headerShown: false,
+        }}
+      />
+      {/* SCROLL ANIMATIONS */}
+      <Stack.Screen
+        name="TwoWayScrolling"
+        component={TwoWayScrolling}
         options={{
           headerShown: false,
         }}
