@@ -2,15 +2,17 @@ import React, {useEffect, useRef, useState} from 'react';
 import {StyleSheet, Text, FlatList, TouchableOpacity} from 'react-native';
 import {generateNumbersArray} from '../../common';
 
+const eventItemHeight = 70;
+const eventItemMarginBottom = 10;
+
 const TwoWayScrolling = () => {
   const dateFlatListRef = useRef(null);
   const eventFlatListRef = useRef(null);
-  //   const [dates, setDates] = useState(generateNumbersArray(30));
-  //   const [events, setEvents] = useState(generateNumbersArray(30));
-  const dates = generateNumbersArray(30);
-  const events = generateNumbersArray(30);
+  const [dates, setDates] = useState(generateNumbersArray(30));
+  const [events, setEvents] = useState(generateNumbersArray(30));
+  // const dates = generateNumbersArray(30);
+  // const events = generateNumbersArray(30);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollIndex, setScrollIndex] = useState(0);
 
   useEffect(() => {
     eventFlatListRef.current.scrollToIndex({
@@ -65,21 +67,20 @@ const TwoWayScrolling = () => {
         initialScrollIndex={selectedIndex}
         onScrollToIndexFailed={() => console.log('failed')}
         scrollEventThrottle={16}
-        // onScroll={event => {
-        //   const index = Math.floor(
-        //     event.nativeEvent.contentOffset.y /
-        //       event.nativeEvent.layoutMeasurement.height,
-        //   );
-        //   console.log(index);
-        //   setSelectedIndex(index);
-        // }}
+        onScroll={event => {
+          const index = Math.floor(
+            event.nativeEvent.contentOffset.y /
+              (eventItemHeight + eventItemMarginBottom),
+          );
+          setSelectedIndex(index);
+        }}
         // onMomentumScrollEnd={event => {
         //   const index = Math.floor(
         //     event.nativeEvent.contentOffset.y /
         //       event.nativeEvent.layoutMeasurement.height,
         //   );
         //   console.log(index);
-        //   //   setSelectedIndex(index);
+        //   setSelectedIndex(index);
         // }}
         showsVerticalScrollIndicator={false}
         style={styles.spacing}
@@ -118,11 +119,11 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   eventCover: {
-    height: 70,
+    height: eventItemHeight,
     borderWidth: 2,
     borderColor: 'goldenrod',
     borderRadius: 10,
-    marginHorizontal: 10,
+    marginHorizontal: eventItemMarginBottom,
     marginBottom: 10,
   },
   eventText: {
