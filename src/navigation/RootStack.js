@@ -14,6 +14,7 @@ import {
   FloatingActionButton2,
   MagicLayout,
   TwoWayScrolling,
+  TwoWayScrollingSync,
 } from '../screens';
 import {BottomTabOne, BottomTabTwo, BottomTabThree} from '../bottomTabs';
 import {DrawerOne} from '../drawers';
@@ -112,7 +113,7 @@ const RootStack = () => {
       {/* SCROLL ANIMATIONS */}
       <Stack.Screen
         name="TwoWayScrolling"
-        component={TwoWayScrolling}
+        component={TwoWayScrollingSync}
         options={{
           headerShown: false,
         }}

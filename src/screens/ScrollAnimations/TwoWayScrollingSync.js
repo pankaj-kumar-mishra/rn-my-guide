@@ -5,13 +5,12 @@ import {generateNumbersArray} from '../../common';
 const eventItemHeight = 70;
 const eventItemMarginBottom = 10;
 
-const TwoWayScrolling = () => {
+const TwoWayScrollingSync = () => {
   const dateFlatListRef = useRef(null);
   const eventFlatListRef = useRef(null);
-  const [dates, setDates] = useState(generateNumbersArray(30));
-  const [events, setEvents] = useState(generateNumbersArray(30));
-  // const dates = generateNumbersArray(30);
-  // const events = generateNumbersArray(30);
+  const dateClickScroll = useRef(false);
+  const [dates] = useState(generateNumbersArray(30));
+  const [events] = useState(generateNumbersArray(30));
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
@@ -34,13 +33,6 @@ const TwoWayScrolling = () => {
         initialScrollIndex={selectedIndex}
         onScrollToIndexFailed={() => console.log('failed')}
         scrollEventThrottle={16}
-        // onMomentumScrollEnd={(event) => {
-        //     const index = Math.floor(
-        //         event.nativeEvent.contentOffset.x /
-        //             event.nativeEvent.layoutMeasurement.width
-        //     );
-        //     // work with: index
-        // }}
         showsHorizontalScrollIndicator={false}
         style={styles.spacing}
         keyExtractor={item => item.toString()}
@@ -48,7 +40,13 @@ const TwoWayScrolling = () => {
           return (
             <TouchableOpacity
               activeOpacity={0.7}
-              onPress={() => setSelectedIndex(index)}
+              onPress={() => {
+                dateClickScroll.current = true;
+                setSelectedIndex(index);
+                setTimeout(() => {
+                  dateClickScroll.current = false;
+                }, 500);
+              }}
               style={[
                 styles.dateCover,
                 {
@@ -72,23 +70,10 @@ const TwoWayScrolling = () => {
             event.nativeEvent.contentOffset.y /
               (eventItemHeight + eventItemMarginBottom),
           );
-          setSelectedIndex(index);
+          if (!dateClickScroll.current) {
+            setSelectedIndex(index);
+          }
         }}
-        // onMomentumScrollEnd={event => {
-        //   const index = Math.floor(
-        //     event.nativeEvent.contentOffset.y /
-        //       (eventItemHeight + eventItemMarginBottom),
-        //   );
-        //   setSelectedIndex(index);
-        // }}
-        // onMomentumScrollEnd={event => {
-        //   const index = Math.floor(
-        //     event.nativeEvent.contentOffset.y /
-        //       event.nativeEvent.layoutMeasurement.height,
-        //   );
-        //   console.log(index);
-        //   setSelectedIndex(index);
-        // }}
         showsVerticalScrollIndicator={false}
         style={styles.spacing}
         keyExtractor={item => item.toString()}
@@ -140,4 +125,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TwoWayScrolling;
+export default TwoWayScrollingSync;

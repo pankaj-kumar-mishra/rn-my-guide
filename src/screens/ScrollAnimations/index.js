@@ -1,3 +1,4 @@
 import TwoWayScrolling from './TwoWayScrolling';
+import TwoWayScrollingSync from './TwoWayScrollingSync';
 
-export {TwoWayScrolling};
+export {TwoWayScrolling, TwoWayScrollingSync};
