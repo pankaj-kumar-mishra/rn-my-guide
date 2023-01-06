@@ -52,6 +52,12 @@ const Home = () => {
 
         <View style={styles.line} />
         <MyPressable
+          text="Basics (Animations)"
+          onPress={() => navToScreen('Basics')}
+        />
+
+        <View style={styles.line} />
+        <MyPressable
           text="How To Animated (Evening Kid)"
           onPress={() => navToScreen('HowToAnimated')}
         />

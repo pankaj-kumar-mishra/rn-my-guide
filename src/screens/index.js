@@ -17,6 +17,7 @@ import {
   FloatingActionButton,
   FloatingActionButton2,
   MagicLayout,
+  Basics,
 } from './animations';
 import {TwoWayScrolling, TwoWayScrollingSync} from './ScrollAnimations';
 
@@ -40,4 +41,5 @@ export {
   MagicLayout,
   TwoWayScrolling,
   TwoWayScrollingSync,
+  Basics,
 };

@@ -15,6 +15,7 @@ import {
   MagicLayout,
   TwoWayScrolling,
   TwoWayScrollingSync,
+  Basics,
 } from '../screens';
 import {BottomTabOne, BottomTabTwo, BottomTabThree} from '../bottomTabs';
 import {DrawerOne} from '../drawers';
@@ -73,6 +74,15 @@ const RootStack = () => {
       />
 
       {/* ANIMATIONS */}
+      {/* BASICS */}
+      <Stack.Screen
+        name="Basics"
+        component={Basics}
+        options={{
+          title: 'Basics (Animation)',
+          headerTitleAlign: 'center',
+        }}
+      />
       {/* EVENTING KID ANIMATIONS */}
       <Stack.Screen
         name="HowToAnimated"
