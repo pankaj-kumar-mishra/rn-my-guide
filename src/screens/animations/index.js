@@ -1,3 +1,4 @@
+import Basics from './Basics';
 import BreathingApp from './BreathingApp';
 import CountDownApp from './CountDownApp';
 import FloatingActionButton from './FloatingActionButton';
@@ -10,4 +11,5 @@ export {
   FloatingActionButton,
   FloatingActionButton2,
   MagicLayout,
+  Basics,
 };
